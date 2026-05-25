@@ -1,3 +1,5 @@
+[English](README.md) | [中文](readme_zh.md)
+
 ![Obsidian Image Gallery](assets/obsidian-image-gallery-header.jpg)
 
 # Obsidian Image Gallery
@@ -42,6 +44,17 @@ type: vertical
 ```
 ````
 
+For remote images (with optional cache duration):
+````
+```img-gallery
+url:
+  - https://example.com/photo1.jpg
+  - https://example.com/photo2.jpg
+type: horizontal
+cache: 7
+```
+````
+
 Take a look at [settings](#settings) to see how to tweak some properties of the gallery; the examples available above are the most minimal configuration possible.
 
 In *[Live Preview](https://help.obsidian.md/Live+preview+update)* mode, the gallery will be generated after moving the cursor outside the code block. Using the regular *Source Mode*, press `cmd+e` (or `ctrl+e`) to trigger Obsidian's Note Preview.
@@ -56,14 +69,18 @@ In *[Live Preview](https://help.obsidian.md/Live+preview+update)* mode, the gall
 
 Settings can be customized in any order, in `yaml` syntax. Optional properties default to the values outlined in the tables below:
 
-| Option   | Default      | Alternatives    | Required | Description                            |
-| -------- | ------------ | --------------- | -------- | -------------------------------------- |
-| `path`   | -            | -               | Yes      | Path relative to the root of the vault |
-| `type`   | `horizontal` | `vertical`      | No       | Type of masonry                        |
-| `gutter` | `8`          | (any number)    | No       | Spacing in px between the images       |
-| `radius` | `0`          | (any number)    | No       | Border radius in px of the images      |
-| `sortby` | `ctime`      | `mtime`, `name` | No       | Sort images by                         |
-| `sort`   | `desc`       | `asc`           | No       | Order of sorting                       |
+| Option   | Default      | Alternatives    | Required | Description                                     |
+| -------- | ------------ | --------------- | -------- | ----------------------------------------------- |
+| `path`   | -            | -               | Yes*     | Path relative to the root of the vault          |
+| `url`    | -            | -               | Yes*     | List of remote image URLs                       |
+| `type`   | `horizontal` | `vertical`      | No       | Type of masonry                                 |
+| `gutter` | `8`          | (any number)    | No       | Spacing in px between the images                |
+| `radius` | `0`          | (any number)    | No       | Border radius in px of the images               |
+| `sortby` | `ctime`      | `mtime`, `name` | No       | Sort images by                                  |
+| `sort`   | `desc`       | `asc`           | No       | Order of sorting                                |
+| `cache`  | `7`          | (any number)    | No       | Cache duration in days for remote images        |
+
+\* Either `path` or `url` must be specified.
 
 Options applicable only for `type=horizontal`:
 

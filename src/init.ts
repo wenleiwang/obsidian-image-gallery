@@ -23,8 +23,8 @@ export class imgGalleryInit extends MarkdownRenderChild {
 
   async onload() {
     // parse and normalize settings
-    this._settings = getSettings(this.src, this.container)
-    this._imagesList = getImagesList(this.app, this.container, this._settings)
+    this._settings = getSettings(this.src, this.container, this.plugin.settings)
+    this._imagesList = await getImagesList(this.app, this.container, this._settings)
 
     // inject the pertinent kind of gallery
     if (this._settings.type === 'horizontal') {
