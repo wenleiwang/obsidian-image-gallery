@@ -101,7 +101,10 @@ const getCachedUri = async (app: App, cachePath: string, cacheMs: number): Promi
   if (!stat || !stat.mtime) return null
 
   const age = Date.now() - stat.mtime
-  if (age > cacheMs) return null
+  if (age > cacheMs) {
+    await app.vault.adapter.remove(cachePath)
+    return null
+  }
 
   return app.vault.adapter.getResourcePath(cachePath)
 }
