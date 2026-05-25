@@ -108,6 +108,11 @@ An additional note about the orientation of the masonry vs. the distribution of 
 
 ## Changelog
 
+`1.2.0`
+  - added support for remote image URLs (`url` config option)
+  - added image caching with configurable expiration (default 7 days)
+  - added plugin settings tab with cache controls
+
 `1.1.1`
   - fixed bug for the "open image in new tab" feature
 
